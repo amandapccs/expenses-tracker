@@ -11,6 +11,10 @@ export const getExpenses = (payload) => ({
   type: 'GET_EXPENSES', payload,
 });
 
+export const removeExpense = (id) => ({
+  type: 'REMOVE_EXPENSE', id,
+});
+
 export function fetchCurrencies() {
   return async (dispatch) => {
     try {
