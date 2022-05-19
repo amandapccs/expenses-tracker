@@ -15,6 +15,16 @@ export const removeExpense = (id) => ({
   type: 'REMOVE_EXPENSE', id,
 });
 
+export const editExpense = (expItem) => ({
+  type: 'EDIT_EXPENSE', expItem,
+});
+
+export const updateExpense = (payload) => ({
+  type: 'UPDATE_EXPENSE', payload,
+});
+
+// export const saveEdit = (expItem) => ({});
+
 export function fetchCurrencies() {
   return async (dispatch) => {
     try {

@@ -2,6 +2,8 @@
 const INITIAL_STATE = {
   currencies: [],
   expenses: [],
+  edit: false,
+  currentEdit: {},
 };
 
 export default function walletReducer(state = INITIAL_STATE, action) {
@@ -20,6 +22,22 @@ export default function walletReducer(state = INITIAL_STATE, action) {
     return {
       ...state,
       expenses: [...state.expenses.filter((expense) => expense.id !== action.id)],
+    };
+  case 'EDIT_EXPENSE':
+    return {
+      ...state,
+      edit: true,
+      currentEdit: action.expItem,
+    };
+  case 'UPDATE_EXPENSE':
+    return {
+      ...state,
+      edit: false,
+      currentEdit: {},
+      expenses: state.expenses.map((exp) => {
+        if (exp.id === action.payload.id) return action.payload;
+        return exp;
+      }),
     };
   default:
     return state;
