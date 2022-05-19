@@ -27,9 +27,9 @@ class Wallet extends React.Component {
   }
 
   render() {
-    const { currencies, fetchCurrATM } = this.props;
+    const { currencies, fetchCurrATM, expenses } = this.props;
     const { value, currency, method, tag, description } = this.state;
-    const expenses = { value, description, currency, method, tag };
+    const expensesInfo = { value, description, currency, method, tag };
     return (
       <div>
         <Header />
@@ -91,7 +91,7 @@ class Wallet extends React.Component {
         <button
           type="button"
           onClick={ () => {
-            fetchCurrATM(expenses);
+            fetchCurrATM(expensesInfo);
             this.setState({ value: '' });
           } }
         >
@@ -111,6 +111,21 @@ class Wallet extends React.Component {
             <th>Moeda de conversão</th>
             <th>Editar/Excluir</th>
           </tr>
+          { expenses.map((expItem) => (
+            <tr key={ expItem.id }>
+              <td>{ expItem.description }</td>
+              <td>{ expItem.tag }</td>
+              <td>{ expItem.method }</td>
+              <td>{ Number(expItem.value).toFixed(2) }</td>
+              <td>{ expItem.exchangeRates[expItem.currency].name }</td>
+              <td>{ Number(expItem.exchangeRates[expItem.currency].ask).toFixed(2) }</td>
+              <td>
+                { (Number(expItem.value)
+              * Number(expItem.exchangeRates[expItem.currency].ask)).toFixed(2) }
+              </td>
+              <td>Real</td>
+            </tr>
+          ))}
         </table>
       </div>);
   }
@@ -119,6 +134,7 @@ class Wallet extends React.Component {
 const mapStateToProps = (state) => ({
   email: state.user.email,
   currencies: state.wallet.currencies,
+  expenses: state.wallet.expenses,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -128,6 +144,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 Wallet.propTypes = {
   currencies: propTypes.arrayOf(propTypes.any).isRequired,
+  expenses: propTypes.arrayOf(propTypes.any).isRequired,
   fetchCurrency: propTypes.func.isRequired,
   fetchCurrATM: propTypes.func.isRequired,
 };
