@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/expenses-tracker/static/css/main.be9f321f.chunk.css",
+    "main.js": "/expenses-tracker/static/js/main.99a78caa.chunk.js",
+    "main.js.map": "/expenses-tracker/static/js/main.99a78caa.chunk.js.map",
+    "runtime-main.js": "/expenses-tracker/static/js/runtime-main.65647e47.js",
+    "runtime-main.js.map": "/expenses-tracker/static/js/runtime-main.65647e47.js.map",
+    "static/js/2.8823f3fa.chunk.js": "/expenses-tracker/static/js/2.8823f3fa.chunk.js",
+    "static/js/2.8823f3fa.chunk.js.map": "/expenses-tracker/static/js/2.8823f3fa.chunk.js.map",
+    "index.html": "/expenses-tracker/index.html",
+    "precache-manifest.b9e23634849753ac1dca9f3ef4e0f5c5.js": "/expenses-tracker/precache-manifest.b9e23634849753ac1dca9f3ef4e0f5c5.js",
+    "service-worker.js": "/expenses-tracker/service-worker.js",
+    "static/css/main.be9f321f.chunk.css.map": "/expenses-tracker/static/css/main.be9f321f.chunk.css.map",
+    "static/js/2.8823f3fa.chunk.js.LICENSE.txt": "/expenses-tracker/static/js/2.8823f3fa.chunk.js.LICENSE.txt",
+    "static/js/main.99a78caa.chunk.js.LICENSE.txt": "/expenses-tracker/static/js/main.99a78caa.chunk.js.LICENSE.txt",
+    "static/media/login-image.svg": "/expenses-tracker/static/media/login-image.dee3998e.svg",
+    "static/media/payments_FILL0_wght400_GRAD0_opsz48.svg": "/expenses-tracker/static/media/payments_FILL0_wght400_GRAD0_opsz48.11df69c5.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.65647e47.js",
+    "static/js/2.8823f3fa.chunk.js",
+    "static/css/main.be9f321f.chunk.css",
+    "static/js/main.99a78caa.chunk.js"
+  ]
+}
