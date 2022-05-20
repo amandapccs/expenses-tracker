@@ -27,7 +27,7 @@ Se você quiser aprender mais informações sobre a API, veja a [documentação]
 ## Imagens da aplicação em funcionamento:
 ![UnxDa08](https://user-images.githubusercontent.com/97243572/169604284-05f8f0a1-60e4-449a-a8e6-2b376c07abce.png)
 - Tela de Login
-- 
+
 ![RmL1HBO](https://user-images.githubusercontent.com/97243572/169604305-c75f1d89-57a9-4c54-a744-b07eaf37f38a.png)
 - Tela da rota principal.
 
