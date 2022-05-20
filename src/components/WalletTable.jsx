@@ -2,13 +2,9 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { removeExpense, editExpense } from '../actions';
+import '../styles/WalletTable.module.css'
 
 class WalletTable extends React.Component {
-  // editCurrExpense = (exp) => {
-  //   console.log('oi', exp);
-  //   editExp(exp);
-  // }
-
   render() {
     const { expenses, expenseRemover, editExp } = this.props;
     return (

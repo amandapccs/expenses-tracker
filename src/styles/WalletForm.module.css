@@ -1,0 +1,18 @@
+.mainForm {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0px;
+}
+
+.mainForm input, select {
+  padding: 3px;
+  margin-left: 3px;
+  margin-right: 8px;
+}
+
+.mainForm button {
+  font-weight: bold;
+  border: none;
+  background-color: #FEE19D;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}

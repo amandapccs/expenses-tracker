@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #FEE19D;
+  padding: 20px;
+}
+
+.userHeaderInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userHeaderInfo p {
+  margin-left: 30px;
+}

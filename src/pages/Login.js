@@ -2,6 +2,8 @@ import propTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import getEmail from '../actions';
+import loginImage from '../images/login-image.svg';
+import styles from '../styles/Login.module.css';
 
 class Login extends React.Component {
   constructor() {
@@ -20,7 +22,6 @@ class Login extends React.Component {
     const valideEmail = regex.test(email);
 
     const FIVE = 5;
-    console.log(password, email);
     if (password.length > FIVE && valideEmail) {
       this.setState({ isDisabled: false });
     } else {
@@ -33,51 +34,68 @@ class Login extends React.Component {
     this.setState({ [name]: value }, () => {
       this.isButtonDisabled();
     });
-    console.log(value);
   }
 
   render() {
     const { isDisabled, password, email } = this.state;
-    const { getEm, history } = this.props;
-    getEm(email);
+    const { getUserEmail, history } = this.props;
 
     return (
-      <div>
-        <input
-          type="text"
-          data-testid="email-input"
-          placeholder="Email"
-          name="email"
-          value={ email }
-          onChange={ this.handleChange }
-        />
-        <input
-          type="password"
-          data-testid="password-input"
-          placeholder="Senha"
-          name="password"
-          value={ password }
-          onChange={ this.handleChange }
-        />
-        <button
-          type="button"
-          disabled={ isDisabled }
-          onClick={ () => history.push('/carteira') }
-        >
-          Entrar
+      <section className={ styles.login }>
 
-        </button>
-      </div>
+        <div className={ styles.loginDiv}>
+          <form>
+            <h1>Faça seu login</h1>
+            <label htmlFor="email">
+              Seu email
+            </label>
+            <input
+              id="email"
+              type="text"
+              data-testid="email-input"
+              placeholder="seu-email@exemplo.com"
+              name="email"
+              value={ email }
+              onChange={ this.handleChange }
+            />
+            <label htmlFor="password">
+              Senha
+            </label>
+            <input
+              id="password"
+              type="password"
+              data-testid="password-input"
+              placeholder="digite sua senha"
+              name="password"
+              value={ password }
+              onChange={ this.handleChange }
+            />
+            <button
+              type="button"
+              disabled={ isDisabled }
+              onClick={ () => {
+                getUserEmail(email);
+                history.push('/carteira');
+              } }
+            >
+              Entrar
+
+            </button>
+          </form>
+          <img src={loginImage} alt="login" className= { styles.loginImage } />
+        </div>
+
+      </section>
     );
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  getEm: (email) => dispatch(getEmail(email)),
+  getUserEmail: (email) => dispatch(getEmail(email)),
 });
 
 Login.propTypes = {
-  getEm: propTypes.func.isRequired,
+  getUserEmail: propTypes.func.isRequired,
   history: propTypes.shape({
     push: propTypes.func.isRequired,
   }).isRequired,

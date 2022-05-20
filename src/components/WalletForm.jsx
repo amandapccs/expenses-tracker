@@ -2,6 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchCurrencyATM } from '../actions';
+import styles from '../styles/WalletForm.module.css';
 
 class WalletForm extends React.Component {
   constructor() {
@@ -26,18 +27,21 @@ class WalletForm extends React.Component {
     const expensesInfo = { value, description, currency, method, tag };
     return (
       <div>
-        <form>
-          <input
-            type="number"
-            data-testid="value-input"
-            placeholder="Valor da Despesa"
-            onChange={ this.handleChange }
-            name="value"
-            value={ value }
-          />
+        <form className={ styles.mainForm }>
+          <label htmlFor="value">
+            Valor da despesa:
+            <input
+              type="number"
+              id="value"
+              data-testid="value-input"
+              onChange={ this.handleChange }
+              name="value"
+              value={ value }
+            />
+          </label>
 
           <label htmlFor="moeda">
-            Moeda
+            Moeda:
             <select
               id="moeda"
               name="currency"
@@ -48,49 +52,62 @@ class WalletForm extends React.Component {
             </select>
           </label>
 
-          <select
-            data-testid="method-input"
-            name="method"
-            value={ method }
-            onChange={ this.handleChange }
-          >
-            <option>Dinheiro</option>
-            <option>Cartão de crédito</option>
-            <option>Cartão de débito</option>
-          </select>
+          <label htmlFor="method">
+            Método de pagamento:
+            <select
+              id="method"
+              data-testid="method-input"
+              name="method"
+              value={ method }
+              onChange={ this.handleChange }
+            >
+              <option>Dinheiro</option>
+              <option>Cartão de crédito</option>
+              <option>Cartão de débito</option>
+            </select>
+          </label>
 
-          <select
-            data-testid="tag-input"
-            name="tag"
-            value={ tag }
-            onChange={ this.handleChange }
+          <label htmlFor="tag">
+            Categoria:
+            <select
+              id="tag"
+              data-testid="tag-input"
+              name="tag"
+              value={ tag }
+              onChange={ this.handleChange }
+            >
+              <option>Alimentação</option>
+              <option>Lazer</option>
+              <option>Trabalho</option>
+              <option>Transporte</option>
+              <option>Saúde</option>
+            </select>
+          </label>
+
+          <label htmlFor="description">
+            Decrição:
+            <input
+              type="text"
+              id="description"
+              data-testid="description-input"
+              placeholder="Descrição"
+              onChange={ this.handleChange }
+              name="description"
+              value={ description }
+            />
+          </label>
+          <button
+            type="button"
+            onClick={ () => {
+              fetchCurrATM(expensesInfo);
+              this.setState({ value: '' });
+            } }
           >
-            <option>Alimentação</option>
-            <option>Lazer</option>
-            <option>Trabalho</option>
-            <option>Transporte</option>
-            <option>Saúde</option>
-          </select>
-          <input
-            type="text"
-            data-testid="description-input"
-            placeholder="Descrição"
-            onChange={ this.handleChange }
-            name="description"
-            value={ description }
-          />
+            Adicionar despesa
+
+          </button>
         </form>
 
-        <button
-          type="button"
-          onClick={ () => {
-            fetchCurrATM(expensesInfo);
-            this.setState({ value: '' });
-          } }
-        >
-          Adicionar despesa
-
-        </button>
       </div>
     );
   }

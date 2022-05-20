@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
+import styles from '../styles/Header.module.css';
+import moneyIcon from '../images/payments_FILL0_wght400_GRAD0_opsz48.svg'
 
 class Header extends React.Component {
   render() {
@@ -12,10 +14,15 @@ class Header extends React.Component {
       return acc;
     }, 0);
     return (
-      <div>
-        <h3 data-testid="email-field">{ email }</h3>
-        <p data-testid="total-field">{ updatedTotal.toFixed(2) }</p>
-        <p data-testid="header-currency-field">BRL</p>
+      <div className={ styles.header }>
+        <div>
+          <img src={ moneyIcon} alt='money icon' />
+        </div>
+        <div className= {styles.userHeaderInfo }>
+          <h3 data-testid="email-field">{ `Email: ${email}` }</h3>
+          <p data-testid="total-field">{ `Despesa Total: ${updatedTotal.toFixed(2)}` }</p>
+          <p data-testid="header-currency-field">BRL</p>
+        </div>
       </div>
     );
   }
