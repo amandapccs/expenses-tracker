@@ -52,6 +52,3 @@ Se você quiser aprender mais informações sobre a API, veja a [documentação]
 ![RmL1HBO](https://user-images.githubusercontent.com/97243572/169604305-c75f1d89-57a9-4c54-a744-b07eaf37f38a.png)
 - Tela da rota principal.
 
-# Pessoa responsável pelo desenvolvimento:
-1. [amandapccs](https://github.com/amandapccs)
-
