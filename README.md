@@ -21,8 +21,6 @@ O usuário irá navegar entre 2 rodas:
 
 [Imagens da aplicação em funcionamento](#imagens-da-aplicação-em-funcionamento)
 
-[Pessoa responsável pelo desenvolvimento](#pessoa-responsável-pelo-desenvolvimento)
-
 ## Tecnologias
 
 - Projeto desenvolvido na linguagem Javascript;
